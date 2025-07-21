@@ -4,7 +4,7 @@
 2. Install [Chocolety](https://chocolatey.org/install) in Powershell 
 3. Install Node.js using Chocolaty `choco install nodejs.install` and check `node -v1`
 4. Install JDK using Chocolaty `choco install -y microsoft-openjdk17` and add the JDK to the path variable and check with `java -version`
-5. Install [Android Studio](https://developer.android.com/studio/index.html)
+5. Install [Android Studio](https://developer.android.com/studio/index.html) and set it up based on the document linked in the title.
 
 
 
