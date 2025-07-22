@@ -7,9 +7,10 @@
 5. Install [Android Studio](https://developer.android.com/studio/index.html) and set it up based on the document linked in the title.
 
 
+### 2. Project setup
 
-
-### 2. System setup
-
-1. Create a project:
-2. [Setup expo](https://reactnative.dev/docs/environment-setup#start-a-new-react-native-project-with-expo)
+1. [Create project files using expo](https://reactnative.dev/docs/environment-setup#start-a-new-react-native-project-with-expo)
+	* `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+ 	* `npx create-expo-app@latest todo_app`
+2. Run the project
+	* `npx expo start`
