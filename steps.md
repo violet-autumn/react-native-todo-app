@@ -13,6 +13,6 @@
 	* `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
  	* `npx create-expo-app@latest todo_app`
 2. Run the project
-	* `npx expo start --tunnel`
+	* `npx expo start` or `npx expo start --tunnel`
 3. Delete the template
    	* `npm run reset-project`
