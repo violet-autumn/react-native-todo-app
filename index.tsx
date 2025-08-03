@@ -169,32 +169,39 @@ export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header Line */}
-      <View style={styles.headerContainer}><Text style={styles.headerText}>ToDo Application</Text></View>
-
-      {/* Delete All Button */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>
+          To-Do
+        </Text>
+      </View>
+      
+      
+      {(todos.length === 0) ? 
+      //"Add a Task" note when the task list is empty
+      (<View style={styles.emptyContainer}>
+        <Text style={styles.emptyContainerText}>
+          Add a Task!
+        </Text>
+      </View>
+      ) : ( 
+      <>
+      {/* Trash can for Delete All */}
       <View>
         <TouchableOpacity style={styles.deleteAll} onPress={() => confirmDeleteAll()}>
           <Ionicons name="trash-outline" size={30} color='black' />
         </TouchableOpacity>
       </View>
-      
-      {/* List ToDo items */}
-      {(todos.length === 0) ? 
-      (<View style={styles.emptyContainer}>
-        <Text style={styles.emptyContainerText}>
-          Add a Task!
-        </Text>
-      </View>) : 
-      ( 
+      {/* Render the list of tasks */}
       <FlatList 
       data={todos} 
       keyExtractor={(item) => item.id.toString()} 
       renderItem={({item}) => (<ToDoItem item={item} confirmDeleteTodo={confirmDeleteTodo} handleTodo={handleDone}/>)} />  
+      </>
       )} 
 
       {/* Add ToDo box */}
       <KeyboardAvoidingView style={styles.footer} behavior="padding" keyboardVerticalOffset={10}>
-        <TextInput style={styles.todoAddText} multiline={true} textAlignVertical="top" onChangeText={(text) => setTodoText(text)} value={todoText} placeholder="Add New Task"/>
+        <TextInput style={styles.todoAddText} multiline={true} textAlignVertical="top" onChangeText={(text) => setTodoText(text)} value={todoText} placeholder="Add New Task" placeholderTextColor="#5d5d5d"/>
         <TouchableOpacity style={styles.todoAddButton} onPress={() => addTodo()}>
           <Ionicons name="add" size={30} color={'black'} />
         </TouchableOpacity>
@@ -232,21 +239,23 @@ const styles = StyleSheet.create({
   },
   headerText : {
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 24
   },
   deleteAll: {
     marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginEnd: 12
+    marginEnd: 12,
+    marginVertical: 10
   },
   emptyContainer: {
     flex: 1,
-    justifyContent: 'center',
+    top: '20%',
+    // justifyContent: 'center',
     alignItems: 'center'
   },
   emptyContainerText: {
-    fontSize: 18,
+    fontSize: 28,
     color: '#333'
   },
   todoContainer: {
